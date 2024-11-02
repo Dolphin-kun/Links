@@ -1,44 +1,52 @@
-
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    height: 100vh;
-    margin: 0;
+    margin: 0; /* マージンを0にして全画面表示に */
     padding: 0;
+    overflow: auto; /* スクロール可能に */
 }
 
 h1 {
     color: #333;
-    font-size: 2vw;
-    padding: 1vw;
+    font-size: 3vh;
+    padding-top: 1vw;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
+h2 {
+    color: #333;
+    font-size: 4vh;
+    margin-bottom: 0;
+}
+
+.bg {
+    position: fixed; /* 背景を固定 */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; /* コンテンツの下に配置 */
+    background: linear-gradient(300deg, deepskyblue, #f696ff);
+    background-size: 120% 120%;
+    animation: gradient-animation 12s ease infinite;
 }
 
 .content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* 垂直方向の中央揃え */
-    background: linear-gradient(300deg, deepskyblue, #f696ff);
-    background-size: 120% 120%;
-    animation: gradient-animation 12s ease infinite;
-    width: 100vw;
-    height: 100vh;
+    justify-content: flex-start; /* 上部に揃える */
+    padding: 20px; /* パディングを追加してスペースを確保 */
+    z-index: 1; /* 背景の上に配置 */
+    height: auto; /* 高さを自動にして、必要に応じてスクロール */
 }
 
 @keyframes gradient-animation {
     0% {
         background-position: 0% 50%;
     }
-
     50% {
         background-position: 100% 50%;
     }
-
     100% {
         background-position: 0% 50%;
     }
@@ -46,12 +54,17 @@ ul {
 
 .img-cover {
     padding-top: 3%;
+}
 
-    img {
-        border-radius: 50%;
-        width: 30%;
+.img-cover img {
+    border-radius: 50%;
+    width: 30%;
+}
 
-    }
+.discription {
+    color: #333;
+    font-size: 2vh;
+    margin-top: 0;
 }
 
 /* カードを縦に並べるコンテナ */
@@ -63,10 +76,7 @@ ul {
     width: 100%;
     padding: 16px;
     align-items: center;
-    /*justify-content: center; /* 中央に配置する */
-    height: 100vh; /* 画面全体の高さに対応 */
 }
-
 
 .card {
     display: flex;
@@ -98,15 +108,26 @@ ul {
     color: #888;
 }
 
-.content h3 {
+.icon img {
+    border-radius: 50%;
+    width: 50px; /* アイコンが円形に収まるように設定 */
+    height: 50px; /* アスペクト比を維持 */
+    border: 4px solid white; /* 白い縁取り */
+    padding: 2px; /* 内側の余白 */
+    background-color: #b7ffc6; /* 縁取りの後ろの背景色 */
+}
+
+.card-content h3 {
     margin: 0;
     font-size: 18px;
     color: #333;
     font-weight: bold;
+    text-align: left;
 }
 
-.content p {
+.card-content p {
     margin: 4px 0 0;
     color: #888;
     font-size: 14px;
+    text-align: left;
 }
